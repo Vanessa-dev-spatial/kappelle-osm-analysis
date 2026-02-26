@@ -27,7 +27,7 @@ def _check_input_source(osm_history_data):
         # Dynamically build SQL query FROM clause 
         return f"\n read_parquet('{osm_history_data}')"
     elif isinstance(osm_history_data, _duckdb.DuckDBPyRelation): 
-        view_name = "_temp_data_source"
+        view_osm_history_data = "_temp_data_source"
         osm_history_data.create_view(view_osm_history_data, replace=True)
         return view_osm_history_data 
     else: 
